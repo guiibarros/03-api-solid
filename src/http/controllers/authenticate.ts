@@ -16,9 +16,9 @@ export async function authenticate(
   const { email, password } = authenticateBodySchema.parse(request.body)
 
   try {
-    const authenticateUseCase = makeAuthenticateUseCase()
+    const authenticate = makeAuthenticateUseCase()
 
-    const { user } = await authenticateUseCase.execute({
+    const { user } = await authenticate.execute({
       email,
       password,
     })
